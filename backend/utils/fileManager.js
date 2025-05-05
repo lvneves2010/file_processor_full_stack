@@ -21,7 +21,16 @@ const readLog = (filename) => {
   return fs.readFileSync(filePath, 'utf-8');
 };
 
+const deleteLog = (filename) => {
+  const filePath = path.join(logsDir, filename);
+  if (!fs.existsSync(filePath)) {
+    throw new Error('Log file not found');
+  }
+  fs.unlinkSync(filePath);
+}
+
 module.exports = {
   writeLog,
   readLog,
+  deleteLog
 };

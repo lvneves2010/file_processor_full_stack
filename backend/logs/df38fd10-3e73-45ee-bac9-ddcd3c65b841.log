@@ -1,0 +1,8 @@
+Command: pathName
+Error:
+Command failed: pathName
+/bin/sh: pathName: command not found
+
+
+Stderr:
+/bin/sh: pathName: command not found

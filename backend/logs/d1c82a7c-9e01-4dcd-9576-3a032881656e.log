@@ -1,0 +1,14 @@
+Command: ls -la
+
+Output:
+total 96
+drwxr-xr-x  10 leo  staff    320 May  4 21:17 .
+drwxr-xr-x   6 leo  staff    192 Apr 29 11:22 ..
+drwxr-xr-x@ 14 leo  staff    448 May  4 21:19 .git
+-rw-r--r--@  1 leo  staff     19 May  4 21:44 .gitignore
+drwxr-xr-x@  3 leo  staff     96 May  4 21:17 .vscode
+drwxr-xr-x@  7 leo  staff    224 Apr 29 11:49 backend
+drwxr-xr-x@  3 leo  staff     96 May  4 21:43 frontend
+drwxr-xr-x@ 99 leo  staff   3168 May  1 11:43 node_modules
+-rw-r--r--@  1 leo  staff  40578 May  1 11:43 package-lock.json
+-rw-r--r--@  1 leo  staff    319 May  1 11:43 package.json
