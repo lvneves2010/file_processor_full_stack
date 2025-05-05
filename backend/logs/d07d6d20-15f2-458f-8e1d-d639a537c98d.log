@@ -1,8 +1,0 @@
-Command: ls
-
-Output:
-backend
-frontend
-node_modules
-package-lock.json
-package.json

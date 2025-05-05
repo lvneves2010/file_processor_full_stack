@@ -1,5 +1,5 @@
 // src/App.jsx
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 
 export default function App() {
@@ -37,18 +37,28 @@ export default function App() {
     try {
       setLoading(true);
       const res = await axios.delete(`/api/process/logs/${filename}`);
-      // if (res.status === 200) {
-      //   if (log.includes(filename)) {
-      //     setLog('');
-      //   }
-        await getLogList();
-      // }
+      if (res.status === 200) {
+          setLog('File deleted successfully');
+      }
+      getLogList();
     } catch (err) {
       setLog(`Error: ${err.response?.data?.error || err.message}`);
     } finally {
       setLoading(false);
     }
   }
+
+  // const showOneLog = async (filename) => {
+  //   try {
+  //     setLoading(true);
+  //     const res = await axios.get(`/api/process/logs/${filename}`);
+  //     setLog(res.data);
+  //   } catch (err) {
+  //     setLog(`Error: ${err.response?.data?.error || err.message}`);
+  //   } finally {
+  //     setLoading(false);
+  //   }
+  // }
   
   return (
     <div className="min-h-screen p-4 bg-gray-100">
@@ -77,7 +87,6 @@ export default function App() {
         <button
           onClick={getLogList}
           disabled={loading}
-          className="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 disabled:opacity-50"
         >
           {loading ? 'Running...' : 'Refresh'}
         </button>
@@ -88,10 +97,16 @@ export default function App() {
               <button
                 onClick={deleteFile(f)}
                 disabled={loading}
-                className="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 disabled:opacity-50"
               >
                 {loading ? 'Running...' : 'Delete'}
               </button>
+              {/* -- 
+              <button
+                onClick={showOneLog(f)}
+                disabled={loading}
+              >
+                {loading ? 'Running...' : 'Show'}
+              </button> */}
             </li>
           ))}
         </ul>

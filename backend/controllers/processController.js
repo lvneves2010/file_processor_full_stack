@@ -68,9 +68,6 @@ const deleteLogFile = (req, res) => {
   }
 
   const log = deleteLog(filename);
-  if (!log) {
-    return res.status(404).json({ error: 'Log file not found' });
-  }
   res.status(200).json({ message: 'Log file deleted successfully' });
 };
 
