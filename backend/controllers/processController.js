@@ -13,11 +13,11 @@ const runCommand = (req, res) => {
 
   exec(command, (error, stdout, stderr) => {
     const logContent = `
-Command: ${command}
-${error ? 'Error:\n' + error.message : ''}
-${stdout ? 'Output:\n' + stdout : ''}
-${stderr ? 'Stderr:\n' + stderr : ''}
-    `.trim();
+      Command: ${command}
+      ${error ? 'Error:\n' + error.message : ''}
+      ${stdout ? 'Output:\n' + stdout : ''}
+      ${stderr ? 'Stderr:\n' + stderr : ''}
+          `.trim();
 
     try {
       writeLog(logFilename, logContent);

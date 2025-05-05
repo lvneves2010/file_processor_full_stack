@@ -1,5 +1,5 @@
 // src/App.jsx
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import axios from 'axios';
 
 export default function App() {
@@ -48,17 +48,17 @@ export default function App() {
     }
   }
 
-  // const showOneLog = async (filename) => {
-  //   try {
-  //     setLoading(true);
-  //     const res = await axios.get(`/api/process/logs/${filename}`);
-  //     setLog(res.data);
-  //   } catch (err) {
-  //     setLog(`Error: ${err.response?.data?.error || err.message}`);
-  //   } finally {
-  //     setLoading(false);
-  //   }
-  // }
+  const showOneLog = async (filename) => {
+    try {
+      setLoading(true);
+      const res = await axios.get(`/api/process/logs/${filename}`);
+      setLog(res.data);
+    } catch (err) {
+      setLog(`Error: ${err.response?.data?.error || err.message}`);
+    } finally {
+      setLoading(false);
+    }
+  }
   
   return (
     <div className="min-h-screen p-4 bg-gray-100">
@@ -100,13 +100,13 @@ export default function App() {
               >
                 {loading ? 'Running...' : 'Delete'}
               </button>
-              {/* -- 
+              -- 
               <button
-                onClick={showOneLog(f)}
+                onClick={() =>showOneLog(f)}
                 disabled={loading}
               >
                 {loading ? 'Running...' : 'Show'}
-              </button> */}
+              </button>
             </li>
           ))}
         </ul>
